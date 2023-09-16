@@ -25,7 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {AppState} from 'react-native';
-import {onCancelBtnPress, onStartBtnPress} from './src/BgNative';
+import {isRunning, onCancelBtnPress, onStartBtnPress} from './src/BgNative';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -71,13 +71,12 @@ function App(): JSX.Element {
       if (nextAppState == 'background') {
         console.log('background ');
         onStartBtnPress();
+        console.log('useEffect isRunning ' + JSON.stringify(isRunning()));
         console.log('----------------');
-
       } else if (nextAppState == 'active') {
         console.log('active ');
         onCancelBtnPress();
         console.log('----------------');
-
       }
     });
 

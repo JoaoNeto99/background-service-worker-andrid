@@ -7,3 +7,7 @@ export function onStartBtnPress() {
 export function onCancelBtnPress() {
   NativeModules.BackgroundWorkManager.stopBackgroundWork();
 }
+
+export async function isRunning() {
+  return await NativeModules.BackgroundWorkManager.isRunning();
+}
